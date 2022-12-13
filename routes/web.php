@@ -83,3 +83,12 @@ Route::put('/atualizar-cliente/{cliente_id}', function (Request $request, $clien
 
     //dd($cliente_id);
 });
+
+Route::get('/apagar-cliente/{cliente_id}', function ($cliente_id) {
+    $cliente = Cliente::findOrFail($cliente_id);
+    $cliente->delete();
+    
+    echo "Cliente apagado!";
+
+    //dd($cliente_id);
+});
